@@ -18,3 +18,10 @@ Features List:
 - [ ] general qa page
 	- [ ] general suggestions page 
 	- [ ] one page info generation 
+
+
+---
+
+beyond just tour guide quotes include other pricing
+
+
