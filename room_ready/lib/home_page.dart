@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/Home/home.dart';
+import 'package:room_ready/Profile/settings.dart';
 
 
 GlobalKey homeKey = GlobalKey();
@@ -55,7 +56,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.settings,
                 color: Theme.of(context).colorScheme.onSurface, size: 32),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
             },
           ),
         ),
@@ -120,15 +121,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class SettingsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
-      body: Center(child: Text('Settings Page')),
-    );
-  }
-}
 
 class AccountPage extends StatelessWidget {
   @override

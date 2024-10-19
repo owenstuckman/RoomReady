@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: 'Bonvoyage',
         theme: Themes.themeData['Red'],
         builder: (context, snapshot) {
-          return HomePage();
+          return Intro();
 
     }
     );
