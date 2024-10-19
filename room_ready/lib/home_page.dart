@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:room_ready/Home/home.dart';
 
 
 GlobalKey homeKey = GlobalKey();
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
         children: [
-          Center(child: Text("Map Page")),
+          Home(),
           Center(child: Text("Create Page")),
           Center(child: Text("Explore Page")),
           Center(child: Text("Saved Page")),

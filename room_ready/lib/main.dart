@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:room_ready/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,13 +63,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: Text('Bonvoyage'),
-        theme: Themes.themeData[snapshot.data] ?? Themes.themeData['Lavender'],
+        title: 'Bonvoyage',
+        //theme: Themes.themeData[snapshot.data] ?? Themes.themeData['Lavender'],
         builder: (context, snapshot) {
-          return Home
+          return HomePage();
+
     }
-
-
-
+    );
   }
 }
