@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/home_page.dart';
 import 'package:room_ready/into_page.dart';
+import 'package:room_ready/themes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Bonvoyage',
-        //theme: Themes.themeData[snapshot.data] ?? Themes.themeData['Lavender'],
+        theme: Themes.themeData['Red'],
         builder: (context, snapshot) {
           return HomePage();
 
