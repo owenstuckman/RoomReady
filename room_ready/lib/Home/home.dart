@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../GlobalVariables/device_configs.dart';
-import '../GlobalVariables/global_widgets.dart';
-
 /*
   Serves currently as sample page
  */
@@ -10,20 +7,17 @@ import '../GlobalVariables/global_widgets.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
+  final String text = "Sample";
+
+  @override
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size(MediaQuery.of(context).size.width, 55+DeviceConfigs.topOffset()),
-          child: Container(
-              height: 55+DeviceConfigs.topOffset(),
-              padding: EdgeInsets.only(top: DeviceConfigs.topOffset()),
-              color: Theme.of(context).colorScheme.tertiaryContainer,
-              alignment: Alignment.center,
-              child: GlobalWidgets.sparklii(context)
-          )
+    return Center(
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
-      body: GlobalWidgets.comingSoon(context, "Custom Shop Coming Soon!", Icons.shopping_cart),
     );
   }
 }
