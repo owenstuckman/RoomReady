@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/Home/home.dart';
-import 'package:room_ready/Profile/settings.dart';
+import 'package:room_ready/Profile/profile.dart';
 
+import 'Profile/notifications.dart';
 
 GlobalKey homeKey = GlobalKey();
 
@@ -53,10 +54,10 @@ class _HomePageState extends State<HomePage> {
           top: 14,
           left: 10,
           child: IconButton(
-            icon: Icon(Icons.settings,
+            icon: Icon(Icons.account_circle,
                 color: Theme.of(context).colorScheme.onSurface, size: 32),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Profiles()));
             },
           ),
         ),
@@ -64,10 +65,10 @@ class _HomePageState extends State<HomePage> {
           top: 11,
           right: 10,
           child: IconButton(
-            icon: Icon(Icons.account_circle,
+            icon: Icon(Icons.notifications,
                 color: Theme.of(context).colorScheme.onSurface, size: 32),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => AccountPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Notifications()));
             },
           ),
         ),
