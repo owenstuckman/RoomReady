@@ -1,37 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
+GlobalKey homeKey = GlobalKey();
+
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: homeKey);
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Navigation Bar',
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.blue,
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: Colors.amber,
-          surface: Colors.white,
-          onSurface: Colors.black,
-          tertiary: Colors.grey[300],
-          surfaceVariant: Colors.grey[200],
-        ),
-      ),
-      home: MyHomePage(),
-    );
-  }
+  State<HomePage> createState() => _HomePageState();
+
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int pageIndex = 0;
+class _HomePageState extends State<HomePage> {
+  int pageIndex = 3;
   final PageController pageController = PageController();
 
   @override

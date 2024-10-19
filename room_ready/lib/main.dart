@@ -58,56 +58,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Home Page',
-      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-    ),
-    Text(
-      'Search Page',
-      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-    ),
-    Text(
-      'Profile Page',
-      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Bottom Navigation Bar Example'),
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).primaryColor, // Use theme's primary color
-        unselectedItemColor: Colors.grey, // Default color for unselected items
-        onTap: _onItemTapped,
-      ),
-    );
+    return MaterialApp(
+        title: Text('Bonvoyage'),
+        theme: Themes.themeData[snapshot.data] ?? Themes.themeData['Lavender'],
+        builder: (context, snapshot) {
+          return Home
+    }
+
+
+
   }
 }
