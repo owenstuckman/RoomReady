@@ -14,15 +14,15 @@ class Themes {
     "Lavender": ThemeData(
       colorScheme: ColorScheme(
           //Tile color, Logo Color, button/switch color
-          primary: Color(0xff655479),
+          primary: Color(0xffddbbaa),
           //Tile text color
-          onPrimary: Colors.white,
+          onPrimary: Color(0xff000000),
           //Primary background color
           primaryContainer: Color(0xffd9cbda),
           //Secondary color
-          secondary: Color(0xffd0aec7),
+          secondary: Color(0xfff6f1f1),
           //Secondary text color
-          onSecondary: Color(0xff5b374b),
+          onSecondary: Color(0xff000000),
           //Secondary background color
           secondaryContainer: Color(0xffdfd5e0),
           //Zesty button color
