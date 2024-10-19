@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 
 
-class Intro extends StatefulWidget {
-  const Intro({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
-  _IntroState createState() => _IntroState();
+  _SignupState createState() => _SignupState();
 }
 
-class _IntroState extends State<Intro> {
+class _SignupState extends State<Signup> {
   bool _obscureText = true;
 
-  final String text = "Sign in ";
+  final String text = "Sign up now";
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +36,8 @@ class _IntroState extends State<Intro> {
             ),
             SizedBox(height: 20),
 
+
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: TextField(
@@ -49,7 +51,31 @@ class _IntroState extends State<Intro> {
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+
+
+            SizedBox(height: 20),
+
+
+
+
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 150),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'UserName',
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 16,
+                    horizontal: 16,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
                   ),
                 ),
               ),
@@ -74,9 +100,6 @@ class _IntroState extends State<Intro> {
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(
-                      color: const Color.fromARGB(255, 253, 171, 48),
-                    ),
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(Icons.remove_red_eye_outlined),
@@ -98,41 +121,39 @@ class _IntroState extends State<Intro> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                    onTap: () {
 
-                      print('Forgot Password clicked');
-                      //Do more shit later
-                      
-                    },
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        color: Colors.orange,
-                        fontSize: 12,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
+                  Text(
+                    "Password must be 8 character long"
+                  )
                 ],
-              ),
+              )
             ),
 
 
 
             SizedBox(height: 20),
 
-            TextButton(
-              onPressed: () {
-                // Do all the shit here
-              },
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.blue, 
+            
+              Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 150), // Corrected EdgeInsets
+              child: TextButton(
+                onPressed: () {
+                  // Add your action here
+                  print("Sign In button pressed");
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue, // Button background color
+                ),
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.white, // White text color for contrast
+                  ),
+                ),
               ),
-              child: Text('Sign In'),
-            ),
+            )
           ],
         ),
       ),

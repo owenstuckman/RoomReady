@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:room_ready/Sign_up.dart';
 import 'package:room_ready/home_page.dart';
-import 'package:room_ready/into_page.dart';
+import 'package:room_ready/Sign_in.dart';
 import 'package:room_ready/themes.dart';
 
 void main() {
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: 'Bonvoyage',
         theme: Themes.themeData['Red'],
         builder: (context, snapshot) {
-          return Intro();
+          return Signup();
 
     }
     );
