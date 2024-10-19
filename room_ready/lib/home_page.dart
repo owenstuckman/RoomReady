@@ -90,11 +90,11 @@ class _HomePageState extends State<HomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildNavItem(Icons.map, 0, iconColor),
-          _buildNavItem(Icons.construction, 1, iconColor),
-          _buildNavItem(Icons.language, 2, iconColor),
-          _buildNavItem(Icons.bookmark, 3, iconColor),
-          _buildNavItem(Icons.shopping_cart, 4, iconColor),
+          _buildNavItem(Icons.home_outlined, 0, iconColor),
+          _buildNavItem(Icons.location_on_sharp, 1, iconColor),
+          _buildNavItem(Icons.search, 2, iconColor),
+          _buildNavItem(Icons.message_outlined, 3, iconColor),
+          _buildNavItem(Icons.account_circle_sharp, 4, iconColor),
         ],
       ),
     );
