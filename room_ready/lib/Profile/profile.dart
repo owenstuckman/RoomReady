@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:room_ready/Profile/Profile-SubParts/liked.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'Profile-SubParts/version.dart';
 
 /*
   Serves currently as sample page
@@ -100,18 +104,29 @@ class _ProfilesState extends State<Profiles> {
             // Settings Menu
             _settingsMenuItem(Icons.person, "Profile", () {
               // Navigate to Profile
+              //cupertinopageroute
             }),
             _settingsMenuItem(Icons.favorite, "Liked", () {
-              // Navigate to Liked Items
+              Navigator.of(context).push(
+                CupertinoPageRoute(
+                  builder: (context) => Liked(),
+                ),
+              );
             }),
             _settingsMenuItem(Icons.history, "Previous Trips", () {
               // Navigate to Previous Trips
+              //cupetrinopageroute
             }),
             _settingsMenuItem(Icons.settings, "Settings", () {
               // Navigate to App Settings
+              //cupertinopageroute
             }),
             _settingsMenuItem(Icons.info, "Version", () {
-              // Show Version Info
+              Navigator.of(context).push(
+                CupertinoPageRoute(
+                  builder: (context) => Version(),
+                ),
+              );
             }),
           ],
         ),
