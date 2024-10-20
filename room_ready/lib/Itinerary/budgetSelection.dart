@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/Itinerary/yearPicker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:room_ready/GlobalStuff/local_data.dart';
 import 'package:room_ready/home_page.dart';
 

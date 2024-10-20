@@ -65,6 +65,12 @@ class local_Data {
     prefs.setString('selectedLanguage', language);
   }
 
-
+    Future<void> saveStartEndDate(DateTime startDate, DateTime endDate) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('startDate', startDate.toString());
+    prefs.setString('endDate', endDate.toString());
+    print(startDate.toString());
+    print(endDate.toString());
+  }
 
 }

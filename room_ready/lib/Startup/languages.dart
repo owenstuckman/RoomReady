@@ -50,7 +50,6 @@ class _LanguagesState extends State<Languages> {
   'ZH-HANT - Chinese (traditional)',
   ];
 
-  // Variable to store selected language
   String? selectedLanguage;
 
   @override
@@ -58,7 +57,7 @@ class _LanguagesState extends State<Languages> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Select Language'),
-        backgroundColor: Colors.orange[100], // Optional background color
+        backgroundColor: Colors.orange[100], 
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -88,7 +87,6 @@ class _LanguagesState extends State<Languages> {
             ),
             SizedBox(height: 30),
 
-            // "Next" Button
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
@@ -105,7 +103,6 @@ class _LanguagesState extends State<Languages> {
                     MaterialPageRoute(builder: (context) => Loading()), // Modify as needed
                   );
                 } else {
-                  // Show a message if no language is selected
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Please select a language')),
                   );

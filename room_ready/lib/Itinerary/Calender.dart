@@ -3,6 +3,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:room_ready/Itinerary/toBring.dart';
 import 'package:shared_preferences/shared_preferences.dart'; 
 import 'package:room_ready/Itinerary/yearPicker.dart';
+import 'package:room_ready/GlobalStuff/local_data.dart';
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
@@ -180,6 +181,9 @@ class _CalendarPageState extends State<CalendarPage> {
                 // Next Button
                 TextButton(
                   onPressed: () {
+
+                    local_Data().saveStartEndDate(_selectedStartDay!, _selectedEndDay!);
+
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => toBring()),

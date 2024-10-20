@@ -12,7 +12,6 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
 
-  // Controllers to store the entered values
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -44,11 +43,10 @@ class _SignupState extends State<Signup> {
             SizedBox(height: 20),
 
             
-            // Username TextField
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: TextField(
-                controller: usernameController, // Connect the controller to the text field
+                controller: usernameController, 
                 decoration: InputDecoration(
                   hintText: 'Username',
                   filled: true,
@@ -68,11 +66,10 @@ class _SignupState extends State<Signup> {
             SizedBox(height: 20),
 
 
-            // Email TextField
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: TextField(
-                controller: emailController, // Connect the controller to the text field
+                controller: emailController, 
                 decoration: InputDecoration(
                   hintText: 'Email',
                   filled: true,
@@ -92,11 +89,10 @@ class _SignupState extends State<Signup> {
             SizedBox(height: 20),
 
 
-            // Password TextField
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: TextField(
-                controller: passwordController, // Connect the controller to the text field
+                controller: passwordController, 
                 obscureText: _obscureText,
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -115,7 +111,7 @@ class _SignupState extends State<Signup> {
                     ),
                     onPressed: () {
                       setState(() {
-                        _obscureText = !_obscureText; // Toggle password visibility
+                        _obscureText = !_obscureText; 
                       });
                     },
                   ),
@@ -127,7 +123,6 @@ class _SignupState extends State<Signup> {
             SizedBox(height: 10),
 
 
-            //Password text
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: Row(
@@ -141,7 +136,6 @@ class _SignupState extends State<Signup> {
 
 
             SizedBox(height: 20),
-            // Sign Up Button
 
 
             Padding(
@@ -161,19 +155,18 @@ class _SignupState extends State<Signup> {
                   
                 },
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue, // Button background color
+                  backgroundColor: Colors.blue, 
                 ),
                 child: Text(
                   'Sign Up',
                   style: TextStyle(
-                    color: Colors.white, // White text color for contrast
+                    color: Colors.white, 
                   ),
                 ),
               ),
             ),
 
 
-            //Make it so only the signin button is blue and clickable
              GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -191,9 +184,6 @@ class _SignupState extends State<Signup> {
               ),
             )
 
-
-            
-            //ending in case more stuff
 
           ],
         ),
