@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Bonvoyage',
-        theme: Themes.themeData['Red'],
+        theme: Themes.themeData['Lavender'],
         builder: (context, snapshot) {
           return HomePage();
 

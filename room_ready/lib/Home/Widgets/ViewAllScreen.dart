@@ -36,7 +36,6 @@ class ViewAllScreen extends StatelessWidget {
             placeName: destination['placeName'],
             location: destination['location'],
             rating: destination['rating'],
-            numberOfPeople: destination['numberOfPeople'],
           );
         },
       ),
