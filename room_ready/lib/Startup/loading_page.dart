@@ -15,7 +15,7 @@ class Loading extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start, 
           children: [
             Text(
-              'Bon',
+              'BON',
               style: TextStyle(
                 fontSize: 48, 
                 fontWeight: FontWeight.bold,

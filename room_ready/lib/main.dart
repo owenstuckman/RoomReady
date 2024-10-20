@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:room_ready/Sign_up.dart';
+import 'package:room_ready/Messages/Messages.dart';
+import 'package:room_ready/Startup/Sign_up.dart';
 import 'package:room_ready/home_page.dart';
-import 'package:room_ready/Sign_in.dart';
+import 'package:room_ready/Startup/Sign_in.dart';
+import 'package:room_ready/Startup/loading_page.dart';
 import 'package:room_ready/themes.dart';
+import 'package:room_ready/Messages/Messages_with.dart';
 
 void main() {
   runApp(const MyApp());
