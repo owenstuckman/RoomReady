@@ -52,7 +52,6 @@ class local_Data {
     Future<void> saveInterests(List<String> selectedInterests) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setStringList('selectedInterests', selectedInterests);
-
   }
 
   Future<List<String>?> getInterests() async {
@@ -69,8 +68,6 @@ class local_Data {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('startDate', startDate.toString());
     prefs.setString('endDate', endDate.toString());
-    print(startDate.toString());
-    print(endDate.toString());
   }
 
 }

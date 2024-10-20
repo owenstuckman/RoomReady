@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:room_ready/Itinerary/Itinerary.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:room_ready/Itinerary/toBring.dart';
 import 'package:shared_preferences/shared_preferences.dart'; 
@@ -186,7 +187,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => toBring()),
+                      MaterialPageRoute(builder: (context) => ItineraryPage()),
                     );
                   },
                   style: TextButton.styleFrom(

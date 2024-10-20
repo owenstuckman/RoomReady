@@ -14,7 +14,6 @@ class Message {
   });
 }
 
-// List of Message objects
 List<Message> messages = [
   Message(
     name: 'Nathan Walker',
@@ -34,5 +33,4 @@ List<Message> messages = [
     date: 'Yesterday',
     icon: Icon(Icons.person),
   ),
-  // Add more messages as needed
 ];
