@@ -23,6 +23,7 @@ class MessageInputField extends StatelessWidget {
             onPressed: () {
               if (_controller.text.isNotEmpty) {
                 // Provider is mesage returned
+                // messages list
                 Provider.of<MessageProvider>(context, listen: false)
                     .addMessage('me', _controller.text);
                 _controller.clear();

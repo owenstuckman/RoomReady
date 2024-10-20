@@ -8,6 +8,7 @@ class MessageListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Chat')),
+      // messages list  
       body: Consumer<MessageProvider>(
         builder: (context, messageProvider, child) {
           return ListView.builder(

@@ -24,7 +24,7 @@ class MessageWidget extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 5),
-              Text(message.content),
+              Text(message.body),
               SizedBox(height: 5),
               Text(
                 message.timestamp.toString(),

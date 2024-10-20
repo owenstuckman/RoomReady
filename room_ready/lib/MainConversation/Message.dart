@@ -9,4 +9,5 @@ class Message {
 
   Message(this.receiver, this.body, this.sender, this.timestamp);
 
+
 }
