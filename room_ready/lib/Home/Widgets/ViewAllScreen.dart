@@ -5,14 +5,14 @@ import 'DestinationCard.dart';
 class ViewAllScreen extends StatelessWidget {
   final List<Map<String, dynamic>> destinations = [
     {
-      'imageUrl': 'https://yourimageurl.com/cloudgate.jpg',
+      'imageUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE10sKP_U86cMZgQkQ2GBMcr_Jk8Glq4ylpQ&s',
       'placeName': 'Cloud Gate "The Bean"',
       'location': 'Chicago, Illinois',
       'rating': 4.7,
       'numberOfPeople': 50
     },
     {
-      'imageUrl': 'https://yourimageurl.com/artinstitute.jpg',
+      'imageUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE10sKP_U86cMZgQkQ2GBMcr_Jk8Glq4ylpQ&s',
       'placeName': 'The Art Institute of Chicago',
       'location': 'Chicago, Illinois',
       'rating': 4.8,

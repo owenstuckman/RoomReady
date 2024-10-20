@@ -33,9 +33,9 @@ class _HomePageState extends State<HomePage> {
         children: [
           Home(),
           Center(child: Text("Create Page")),
-          Center(child: Text("Explore Page")),
+          Home(),
           Center(child: Text("Saved Page")),
-          Center(child: Text("Shop Page")),
+          Profiles(),
         ],
       ),
       backgroundColor: Theme.of(context).colorScheme.primaryContainer,
