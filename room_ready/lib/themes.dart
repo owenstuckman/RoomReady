@@ -14,7 +14,7 @@ class Themes {
     "Lavender": ThemeData(
       colorScheme: ColorScheme(
           //Tile color, Logo Color, button/switch color
-          primary: Color(0xfff7eddb),
+          primary: Color.fromRGBO(247, 237, 219, 1),
           //Tile text color
           onPrimary: Color(0xff000000),
           //Primary background color

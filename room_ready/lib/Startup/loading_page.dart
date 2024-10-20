@@ -14,7 +14,7 @@ class Loading extends StatelessWidget {
         );
       },
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 233, 200, 61), 
+        backgroundColor: const Color.fromRGBO(247, 237, 219, 1), 
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -24,7 +24,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange[50],
+      backgroundColor: const Color.fromRGBO(247, 237, 219, 1),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
