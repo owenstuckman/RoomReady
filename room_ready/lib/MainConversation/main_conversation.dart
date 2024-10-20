@@ -8,11 +8,9 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Conversation')),
       body: Column(
         children: [
           Expanded(child: MessageListScreen()),
-          MessageInputField(),
         ],
       ),
     );
