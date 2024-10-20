@@ -9,22 +9,44 @@ import 'Widgets/ViewAllScreen.dart';
 
 class Home extends StatelessWidget {
 
+
+  // sample data
   final List<Map<String, dynamic>> destinations = [
     {
-      'imageUrl': 'https://yourimageurl.com/cloudgate.jpg',
+      'imageUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE10sKP_U86cMZgQkQ2GBMcr_Jk8Glq4ylpQ&s',
       'placeName': 'Cloud Gate "The Bean"',
       'location': 'Chicago, Illinois',
       'rating': 4.7,
       'numberOfPeople': 50
     },
     {
-      'imageUrl': 'https://yourimageurl.com/artinstitute.jpg',
+      'imageUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE10sKP_U86cMZgQkQ2GBMcr_Jk8Glq4ylpQ&s',
       'placeName': 'The Art Institute of Chicago',
       'location': 'Chicago, Illinois',
       'rating': 4.8,
       'numberOfPeople': 30
     },
-    // Add more destinations here
+    {
+      'imageUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE10sKP_U86cMZgQkQ2GBMcr_Jk8Glq4ylpQ&s',
+      'placeName': 'The Art Institute of Chicago',
+      'location': 'Chicago, Illinois',
+      'rating': 4.8,
+      'numberOfPeople': 30
+    },
+    {
+      'imageUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE10sKP_U86cMZgQkQ2GBMcr_Jk8Glq4ylpQ&s',
+      'placeName': 'The Art Institute of Chicago',
+      'location': 'Chicago, Illinois',
+      'rating': 4.8,
+      'numberOfPeople': 30
+    },
+    {
+      'imageUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE10sKP_U86cMZgQkQ2GBMcr_Jk8Glq4ylpQ&s',
+      'placeName': 'The Art Institute of Chicago',
+      'location': 'Chicago, Illinois',
+      'rating': 4.8,
+      'numberOfPeople': 30
+    },
   ];
 
   @override
@@ -59,13 +81,13 @@ class Home extends StatelessWidget {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
+                // call sample data
                 children: destinations.map((destination) {
                   return DestinationCard(
                     imageUrl: destination['imageUrl'],
                     placeName: destination['placeName'],
                     location: destination['location'],
                     rating: destination['rating'],
-                    numberOfPeople: destination['numberOfPeople'],
                   );
                 }).toList(),
               ),

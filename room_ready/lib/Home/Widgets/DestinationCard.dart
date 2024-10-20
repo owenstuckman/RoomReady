@@ -7,7 +7,6 @@ class DestinationCard extends StatelessWidget {
   final String placeName;
   final String location;
   final double rating;
-  final int numberOfPeople;
 
   const DestinationCard({
     Key? key,
@@ -15,13 +14,12 @@ class DestinationCard extends StatelessWidget {
     required this.placeName,
     required this.location,
     required this.rating,
-    required this.numberOfPeople,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220, // Make the card narrower for horizontal scrolling
+      width: 220, // Narrower for horizontal scrolling
       margin: EdgeInsets.symmetric(horizontal: 8.0),
       child: GestureDetector(
         onTap: () {
@@ -49,6 +47,34 @@ class DestinationCard extends StatelessWidget {
                   height: 120,
                   width: double.infinity,
                   fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) {
+                      return child;
+                    } else {
+                      return Container(
+                        height: 120,
+                        width: double.infinity,
+                        color: Colors.grey[200], // Light grey background for loading
+                        child: Center(
+                          child: CircularProgressIndicator(), // Loading spinner
+                        ),
+                      );
+                    }
+                  },
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      height: 120,
+                      width: double.infinity,
+                      color: Colors.grey[200], // Light grey background for errors
+                      child: Center(
+                        child: Icon(
+                          Icons.error,
+                          color: Colors.red, // Red error icon
+                          size: 40,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
               Padding(
@@ -70,7 +96,6 @@ class DestinationCard extends StatelessWidget {
                           child: Icon(Icons.person),
                         ),
                         SizedBox(width: 4),
-                        Text("+$numberOfPeople")
                       ],
                     ),
                   ],
