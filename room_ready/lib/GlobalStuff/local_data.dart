@@ -70,4 +70,34 @@ class local_Data {
     prefs.setString('endDate', endDate.toString());
   }
 
+
+Future<String?> getLocation() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getString('location');
+}
+
+Future<int?> getMinBudget() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getInt('minBudget');
+}
+
+Future<int?> getMaxBudget() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getInt('maxBudget');
+}
+
+Future<DateTime?> getStartDate() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? startDateString = prefs.getString('startDate');
+  return startDateString != null ? DateTime.parse(startDateString) : null;
+}
+
+Future<DateTime?> getEndDate() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? endDateString = prefs.getString('endDate');
+  return endDateString != null ? DateTime.parse(endDateString) : null;
+}
+
+
+
 }
