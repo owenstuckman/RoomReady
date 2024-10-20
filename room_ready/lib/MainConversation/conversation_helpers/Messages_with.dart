@@ -14,8 +14,6 @@ class _MessagesWithState extends State<MessagesWith> {
       body: Center(
         child: Column(
           children: [
-            
-
           ],
         ),
       ),
