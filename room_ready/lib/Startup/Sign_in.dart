@@ -13,11 +13,10 @@ class Signin extends StatefulWidget {
 class _SigninState extends State<Signin> {
   bool _obscureText = true;
 
-  // Create TextEditingControllers for email and password
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final local_Data localDataInstance = local_Data(); // Instance of your local data class
+  final local_Data localDataInstance = local_Data(); 
 
   final String text = "Sign in now";
 
@@ -44,11 +43,10 @@ class _SigninState extends State<Signin> {
 
 
             
-            // Email TextField
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: TextField(
-                controller: emailController, // Connect the controller
+                controller: emailController, 
                 decoration: InputDecoration(
                   hintText: 'Email',
                   filled: true,
@@ -70,11 +68,10 @@ class _SigninState extends State<Signin> {
 
 
             
-            // Password TextField
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: TextField(
-                controller: passwordController, // Connect the controller
+                controller: passwordController, 
                 obscureText: _obscureText,
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -133,7 +130,6 @@ class _SigninState extends State<Signin> {
 
 
             
-            // Sign In Button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: TextButton(
@@ -141,7 +137,6 @@ class _SigninState extends State<Signin> {
                   String email = emailController.text;
                   String password = passwordController.text;
 
-                  // Call the dataLogin method from local_Data instance
                   bool loginSuccess = await localDataInstance.dataLogin(email, password);
 
                   if (loginSuccess) {
@@ -152,7 +147,6 @@ class _SigninState extends State<Signin> {
                 );
                   } else {
                     print("Login failed. Incorrect email or password.");
-                    // Show error message or handle failed login
                   }
                 },
                 style: TextButton.styleFrom(
@@ -169,7 +163,6 @@ class _SigninState extends State<Signin> {
 
 
 
-            //reformat so only the word sign up is blue
                 GestureDetector(
               onTap: () {
                 Navigator.push(

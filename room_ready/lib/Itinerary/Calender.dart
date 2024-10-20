@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:room_ready/Itinerary/toBring.dart';
+import 'package:shared_preferences/shared_preferences.dart'; 
 import 'package:room_ready/Itinerary/yearPicker.dart';
+import 'package:room_ready/GlobalStuff/local_data.dart';
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
@@ -13,6 +16,38 @@ class _CalendarPageState extends State<CalendarPage> {
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedStartDay;
   DateTime? _selectedEndDay;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadStoredDate(); // Call method to load stored date when the widget initializes
+  }
+
+  // Method to load the stored month and year from SharedPreferences
+  Future<void> _loadStoredDate() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? storedMonth = prefs.getString('selectedMonth');
+    int? storedYear = prefs.getInt('selectedYear');
+
+    if (storedMonth != null && storedYear != null) {
+      // Parse the stored month and year into a DateTime object
+      int monthIndex = _getMonthIndex(storedMonth); // Convert the month name into an index
+      if (monthIndex != -1) {
+        setState(() {
+          _focusedDay = DateTime(storedYear, monthIndex, 1);
+        });
+      }
+    }
+  }
+
+  // Helper method to convert a month name to a month index
+  int _getMonthIndex(String month) {
+    final List<String> months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return months.indexOf(month) + 1; // Return the index (1-based for DateTime)
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,23 +153,54 @@ class _CalendarPageState extends State<CalendarPage> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
 
-             TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => yearPicker()),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey,
-                    ),
-                    child: Text(
-                      'Back',
-                      style: TextStyle(
-                        color: Colors.black, 
-                      ),
+            SizedBox(height: 20),
+
+            // Row for Back and Next buttons side by side
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Ensure they are placed side by side
+              children: [
+                // Back Button
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => yearPicker()),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: Text(
+                    'Back',
+                    style: TextStyle(
+                      color: Colors.black,
                     ),
                   ),
+                ),
+
+                // Next Button
+                TextButton(
+                  onPressed: () {
+
+                    local_Data().saveStartEndDate(_selectedStartDay!, _selectedEndDay!);
+
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => toBring()),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: Text(
+                    'Next',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

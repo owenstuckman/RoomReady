@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:room_ready/Itinerary/budgetSelection.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:room_ready/Itinerary/Calender.dart';
+import 'package:room_ready/Itinerary/budgetSelection.dart';
 
 class yearPicker extends StatefulWidget {
   const yearPicker({super.key});
@@ -15,10 +16,17 @@ class _yearPickerState extends State<yearPicker> {
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  final List<int> years = List.generate(50, (index) => 2020 + index);
+  final List<int> years = List.generate(10, (index) => 2020 + index);
 
-  int selectedMonthIndex = 9; 
-  int selectedYearIndex = 4;  
+  int selectedMonthIndex = 9;  // Default to October
+  int selectedYearIndex = 4;   // Default to 2024
+
+  // Function to save the selected month and year to SharedPreferences
+  void _saveYearMonth() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('selectedMonth', months[selectedMonthIndex]);
+    prefs.setInt('selectedYear', years[selectedYearIndex]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +46,7 @@ class _yearPickerState extends State<yearPicker> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Month Picker
                 SizedBox(
                   height: 150,  
                   width: 250,
@@ -69,6 +78,7 @@ class _yearPickerState extends State<yearPicker> {
                   ),
                 ),
 
+                // Year Picker
                 SizedBox(
                   height: 150, 
                   width: 250,
@@ -106,12 +116,14 @@ class _yearPickerState extends State<yearPicker> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Align buttons
               children: [
+                // Back Button
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => budgetSelection()),
                     );
+
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.grey,
@@ -124,8 +136,10 @@ class _yearPickerState extends State<yearPicker> {
                   ),
                 ),
 
+                // Next Button
                 TextButton(
                   onPressed: () {
+                    _saveYearMonth(); // Save selected month and year
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => CalendarPage()),

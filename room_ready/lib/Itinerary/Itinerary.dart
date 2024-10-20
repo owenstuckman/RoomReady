@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/Itinerary/budgetSelection.dart';
+import 'package:room_ready/GlobalStuff/local_data.dart'; // Import local_Data class
 
 class Itinerary extends StatelessWidget {
-  const Itinerary({super.key});
+  Itinerary({super.key});
+
+  final TextEditingController locationController = TextEditingController(); // Controller for location input
+  final local_Data localData = local_Data(); // Instance of your local data class
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,7 @@ class Itinerary extends StatelessWidget {
 
               // TextField for Location Input
               TextField(
+                controller: locationController, // Attach the controller here
                 decoration: InputDecoration(
                   hintText: 'ex. New York',
                   filled: true,
@@ -42,12 +47,15 @@ class Itinerary extends StatelessWidget {
 
               // "Next" Button
               TextButton(
-                onPressed: () {
-                  // Navigate using MaterialPageRoute without a separate file
+                onPressed: () async {
+                  String location = locationController.text;
+
+                  local_Data().saveLocation(location);
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => budgetSelection(), // Inline class for budgetSelection
+                      builder: (context) => budgetSelection(), 
                     ),
                   );
                 },
@@ -69,4 +77,3 @@ class Itinerary extends StatelessWidget {
     );
   }
 }
-

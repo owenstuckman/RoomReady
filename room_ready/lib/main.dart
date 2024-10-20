@@ -3,8 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:room_ready/Itinerary/Calender.dart';
 import 'package:room_ready/Itinerary/Itinerary.dart';
 import 'package:room_ready/Itinerary/budgetSelection.dart';
+import 'package:room_ready/Itinerary/toBring.dart';
 import 'package:room_ready/Itinerary/yearPicker.dart';
+import 'package:room_ready/MainConversation/messages.dart';
 import 'package:room_ready/Startup/Sign_up.dart';
+import 'package:room_ready/Startup/languages.dart';
 import 'package:room_ready/home_page.dart';
 import 'package:room_ready/Startup/Sign_in.dart';
 import 'package:room_ready/Startup/loading_page.dart';
@@ -69,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: 'Bonvoyage',
         theme: Themes.themeData['Lavender'],
         builder: (context, snapshot) {
-          return HomePage();
+          return Messages();
 
     }
     );
