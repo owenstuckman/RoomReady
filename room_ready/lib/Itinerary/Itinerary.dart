@@ -10,11 +10,12 @@ class Itinerary extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 100), 
+          padding: const EdgeInsets.symmetric(horizontal: 100),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, 
+            mainAxisSize: MainAxisSize.min, // Center content vertically
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Title Text
               Text(
                 'Where are you traveling?',
                 style: TextStyle(
@@ -22,42 +23,45 @@ class Itinerary extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 30), 
+              SizedBox(height: 30),
 
+              // TextField for Location Input
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'ex. New York', 
+                  hintText: 'ex. New York',
                   filled: true,
-                  fillColor: Colors.grey[200], 
+                  fillColor: Colors.grey[200],
                   contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none, 
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
+              SizedBox(height: 40), // Spacer below the TextField
 
-              SizedBox(height:20),
-
-
+              // "Next" Button
               TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => budgetSelection()),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey,
+                onPressed: () {
+                  // Navigate using MaterialPageRoute without a separate file
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => budgetSelection(), // Inline class for budgetSelection
                     ),
-                    child: Text(
-                      'Next',
-                      style: TextStyle(
-                        color: Colors.black, 
-                      ),
-                    ),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.grey,
+                ),
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                    color: Colors.black,
                   ),
-
+                ),
+              ),
+              SizedBox(height: 20), // Add some space at the bottom if needed
             ],
           ),
         ),
@@ -65,3 +69,4 @@ class Itinerary extends StatelessWidget {
     );
   }
 }
+

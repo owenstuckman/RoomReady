@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:room_ready/Itinerary/yearPicker.dart';
 
-class calendarPage extends StatefulWidget {
-  const calendarPage({super.key});
+class CalendarPage extends StatefulWidget {
+  const CalendarPage({super.key});
 
   @override
-  _calendarPageState createState() => _calendarPageState();
+  _CalendarPageState createState() => _CalendarPageState();
 }
 
-class _calendarPageState extends State<calendarPage> {
+class _CalendarPageState extends State<CalendarPage> {
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedStartDay;
   DateTime? _selectedEndDay;
@@ -29,45 +29,40 @@ class _calendarPageState extends State<calendarPage> {
               lastDay: DateTime.utc(2030, 12, 31),
               focusedDay: _focusedDay,
               selectedDayPredicate: (day) {
-                // Highlight the selected start and end days
                 return isSameDay(_selectedStartDay, day) || isSameDay(_selectedEndDay, day);
               },
               onDaySelected: (selectedDay, focusedDay) {
                 setState(() {
                   if (_selectedStartDay == null || (_selectedStartDay != null && _selectedEndDay != null)) {
-                    // Start a new range
                     _selectedStartDay = selectedDay;
                     _selectedEndDay = null;
                   } else if (_selectedStartDay != null && _selectedEndDay == null && selectedDay.isAfter(_selectedStartDay!)) {
-                    // Set the end day
                     _selectedEndDay = selectedDay;
                   }
-                  _focusedDay = focusedDay; // Update the focused day
+                  _focusedDay = focusedDay;
                 });
               },
-              calendarFormat: CalendarFormat.month, // Change this to week/month/2 weeks
+              calendarFormat: CalendarFormat.month,
               startingDayOfWeek: StartingDayOfWeek.monday,
               calendarStyle: CalendarStyle(
-                outsideDaysVisible: false, // Hide the days outside current month
+                outsideDaysVisible: false,
               ),
               headerStyle: HeaderStyle(
-                formatButtonVisible: false, // Hide format toggle button
+                formatButtonVisible: false,
                 titleCentered: true,
                 titleTextStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              // Custom dayBuilder to highlight days between selected start and end dates
               calendarBuilders: CalendarBuilders(
                 defaultBuilder: (context, day, focusedDay) {
                   if (_selectedStartDay != null &&
                       _selectedEndDay != null &&
                       day.isAfter(_selectedStartDay!) &&
                       day.isBefore(_selectedEndDay!)) {
-                    // Highlight the days between the start and end dates
                     return Container(
                       margin: const EdgeInsets.all(6.0),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Colors.blue.withOpacity(0.5), // Highlight color for in-between dates
+                        color: Colors.blue.withOpacity(0.5),
                         shape: BoxShape.circle,
                       ),
                       child: Text(
@@ -76,14 +71,14 @@ class _calendarPageState extends State<calendarPage> {
                       ),
                     );
                   }
-                  return null; // Return null to let TableCalendar handle it
+                  return null;
                 },
                 todayBuilder: (context, day, focusedDay) {
                   return Container(
                     margin: const EdgeInsets.all(6.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Colors.orange, // Highlight today's date
+                      color: Colors.orange,
                       shape: BoxShape.circle,
                     ),
                     child: Text(
@@ -97,7 +92,7 @@ class _calendarPageState extends State<calendarPage> {
                     margin: const EdgeInsets.all(6.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Colors.blue, // Highlight selected start/end dates
+                      color: Colors.blue,
                       shape: BoxShape.circle,
                     ),
                     child: Text(
@@ -123,7 +118,7 @@ class _calendarPageState extends State<calendarPage> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
 
-               TextButton(
+             TextButton(
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
@@ -141,9 +136,6 @@ class _calendarPageState extends State<calendarPage> {
                     ),
                   ),
           ],
-
-
-
         ),
       ),
     );
