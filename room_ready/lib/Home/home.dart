@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Widgets/ViewAllScreen.dart';
+
 /*
   Serves currently as sample page
  */
@@ -13,11 +15,13 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    return MaterialApp(
+      title: 'Destination Explorer',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: ViewAllScreen(),
     );
   }
 }
+
