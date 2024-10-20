@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/GlobalStuff/local_data.dart';
+import 'package:room_ready/Startup/Sign_up.dart';
+import 'package:room_ready/home_page.dart';
 
 class Signin extends StatefulWidget {
   const Signin({super.key});
@@ -144,7 +146,10 @@ class _SigninState extends State<Signin> {
 
                   if (loginSuccess) {
                     print("Login successful");
-                    // Handle successful login
+                    Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
                   } else {
                     print("Login failed. Incorrect email or password.");
                     // Show error message or handle failed login
@@ -161,6 +166,27 @@ class _SigninState extends State<Signin> {
                 ),
               ),
             ),
+
+
+
+            //reformat so only the word sign up is blue
+                GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Signup()),
+                );
+              },
+              child: Text(
+                "Don't have an account? Sign Up",
+                style: TextStyle(
+                  color: Colors.blue, 
+                  fontSize: 16,
+                  decoration: TextDecoration.underline, 
+                ),
+              ),
+            )
+
 
             
           ],

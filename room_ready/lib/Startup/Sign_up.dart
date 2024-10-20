@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/GlobalStuff/local_data.dart';
+import 'package:room_ready/Startup/Sign_in.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -151,6 +152,11 @@ class _SignupState extends State<Signup> {
                   String password = passwordController.text;
 
                  local_Data().saveProfileData(username,email,password,0,0,0);
+
+                 Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Signin()),
+                );
                   
                 },
                 style: TextButton.styleFrom(
@@ -166,7 +172,28 @@ class _SignupState extends State<Signup> {
             ),
 
 
+            //Make it so only the signin button is blue and clickable
+             GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Signin()),
+                );
+              },
+              child: Text(
+                "Already have an account? Sign in",
+                style: TextStyle(
+                  color: Colors.blue, 
+                  fontSize: 16,
+                  decoration: TextDecoration.underline, 
+                ),
+              ),
+            )
+
+
+            
             //ending in case more stuff
+
           ],
         ),
       ),
