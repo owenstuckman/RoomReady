@@ -26,8 +26,9 @@ class _MessagesState extends State<Messages> {
   Widget build(BuildContext context) {
     // Get the filtered messages
     List<Message> filteredMessages = _filterMessages(_searchQuery);
-
-    return Scaffold(
+    return Padding(
+        padding: const EdgeInsets.only(top: 45.0), // Add padding to the top
+    child: Scaffold(
       appBar: AppBar(
         title: Text('Messages'),
       ),
@@ -83,6 +84,7 @@ class _MessagesState extends State<Messages> {
           ],
         ),
       ),
+    )
     );
   }
 }

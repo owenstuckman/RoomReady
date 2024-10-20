@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:room_ready/BonPage/Bon.dart';
 import 'package:room_ready/Home/home.dart';
 import 'package:room_ready/Itinerary/Location.dart';
 import 'package:room_ready/MainConversation/messages.dart';
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Home(),
           Location(),
-          ChatScreen(),
+          Bon(),
           Messages(),
           Profiles(),
         ],
