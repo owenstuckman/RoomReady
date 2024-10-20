@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/Home/home.dart';
+import 'package:room_ready/Itinerary/Itinerary.dart';
+import 'package:room_ready/MainConversation/messages.dart';
 import 'package:room_ready/Profile/profile.dart';
 
 import 'Profile/notifications.dart';
@@ -32,9 +34,9 @@ class _HomePageState extends State<HomePage> {
         },
         children: [
           Home(),
-          Center(child: Text("Create Page")),
+          Itinerary(),
           Home(),
-          Center(child: Text("Saved Page")),
+          Messages(),
           Profiles(),
         ],
       ),

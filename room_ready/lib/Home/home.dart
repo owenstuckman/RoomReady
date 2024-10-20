@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'Widgets/DestinationCard.dart';
 import 'Widgets/ViewAllScreen.dart';
 
@@ -8,8 +7,6 @@ import 'Widgets/ViewAllScreen.dart';
  */
 
 class Home extends StatelessWidget {
-
-
   // sample data
   final List<Map<String, dynamic>> destinations = [
     {
@@ -66,36 +63,36 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              'Best Destinations',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            height: 250, // Set the height for horizontal scrolling content
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                // call sample data
-                children: destinations.map((destination) {
-                  return DestinationCard(
-                    imageUrl: destination['imageUrl'],
-                    placeName: destination['placeName'],
-                    location: destination['location'],
-                    rating: destination['rating'],
-                  );
-                }).toList(),
+      body: SafeArea( // Add SafeArea to prevent overlap with system UI
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Best Destinations',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-          ),
-        ],
+            Container(
+              height: 250, // Set the height for horizontal scrolling content
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: destinations.map((destination) {
+                    return DestinationCard(
+                      imageUrl: destination['imageUrl'],
+                      placeName: destination['placeName'],
+                      location: destination['location'],
+                      rating: destination['rating'],
+                    );
+                  }).toList(),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
