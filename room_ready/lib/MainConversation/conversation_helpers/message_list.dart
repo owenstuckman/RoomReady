@@ -7,6 +7,9 @@ import 'message_input_field.dart';
 class MessageListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Fetch messages when the screen is built
+    Conversations().fetchMessages(1);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Chat'),
