@@ -9,6 +9,7 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+
   // Controllers to store the entered values
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -86,7 +87,6 @@ class _SignupState extends State<Signup> {
             ),
 
 
-            
             SizedBox(height: 20),
 
 
@@ -125,6 +125,7 @@ class _SignupState extends State<Signup> {
             SizedBox(height: 10),
 
 
+            //Password text
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 150),
               child: Row(
@@ -149,9 +150,8 @@ class _SignupState extends State<Signup> {
                   String email = emailController.text;
                   String password = passwordController.text;
 
-                  local_Data._saveProfileData(username,email,password,0,0,0);
+                 local_Data().saveProfileData(username,email,password,0,0,0);
                   
-
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.blue, // Button background color
