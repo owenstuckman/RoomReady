@@ -23,22 +23,31 @@ class _ItineraryPageState extends State<ItineraryPage> {
   }
 
   Future<void> _loadItinerary() async {
-    try {
-      // Replace these with actual values from your application state or user input
-      List<Map<String, dynamic>> fetchedItinerary = await fetchItinerary(
-        "New York", // Example location, replace with actual value
-        "5000",     // Example max budget
-        "2000",     // Example min budget
-        "2024-10-22", // Example start date
-        "2024-10-24", // Example end date
-      );
-      setState(() {
-        itinerary = fetchedItinerary;
-      });
-    } catch (e) {
-      print('Error fetching itinerary: $e');
-    }
+  try {
+    // Use await to get asynchronous data
+    final location = await local_Data().getLocation();
+    final minBudget = await local_Data().getMinBudget();
+    final maxBudget = await local_Data().getMaxBudget();
+    final startDate = await local_Data().getStartDate();
+    final endDate = await local_Data().getEndDate();
+    
+    // Fetch itinerary using the retrieved values
+    List<Map<String, dynamic>> fetchedItinerary = await fetchItinerary(
+      location ?? "Unknown location",    
+      minBudget?.toString() ?? "0",      
+      maxBudget?.toString() ?? "0",     
+      startDate?.toIso8601String() ?? "2024-01-01",  
+      endDate?.toIso8601String() ?? "2024-12-31",   
+    );
+
+    // Update the state with the fetched itinerary
+    setState(() {
+      itinerary = fetchedItinerary;
+    });
+  } catch (e) {
+    print('Error fetching itinerary: $e');
   }
+}
 
   Future<List<Map<String, dynamic>>> fetchItinerary(String location, String maxBudget, String minBudget, String startDate, String endDate) async {
     final url = Uri.parse('http://18.221.165.54:3000/generate-itinerary');
