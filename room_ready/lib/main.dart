@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:room_ready/Itinerary/Calender.dart';
 import 'package:room_ready/Itinerary/Itinerary.dart';
 import 'package:room_ready/Itinerary/budgetSelection.dart';
 import 'package:room_ready/Itinerary/yearPicker.dart';
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: 'Bonvoyage',
         theme: Themes.themeData['Lavender'],
         builder: (context, snapshot) {
-          return budgetSelection();
+          return calendarPage();
 
     }
     );

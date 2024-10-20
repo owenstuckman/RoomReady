@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/Itinerary/budgetSelection.dart';
+import 'package:room_ready/Itinerary/Calender.dart';
 
 class yearPicker extends StatefulWidget {
   const yearPicker({super.key});
@@ -33,8 +34,7 @@ class _yearPickerState extends State<yearPicker> {
             ),
             SizedBox(height: 30),
 
-
-
+            // Month and Year Pickers
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -69,8 +69,6 @@ class _yearPickerState extends State<yearPicker> {
                   ),
                 ),
 
-
-
                 SizedBox(
                   height: 150, 
                   width: 250,
@@ -104,25 +102,47 @@ class _yearPickerState extends State<yearPicker> {
               ],
             ),
 
-
-            TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => budgetSelection()),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey,
-                    ),
-                    child: Text(
-                      'Back',
-                      style: TextStyle(
-                        color: Colors.black, 
-                      ),
+            // Row for Back and Next buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Align buttons
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => budgetSelection()),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: Text(
+                    'Back',
+                    style: TextStyle(
+                      color: Colors.black, 
                     ),
                   ),
-                  
+                ),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => calendarPage()),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: Text(
+                    'Next',
+                    style: TextStyle(
+                      color: Colors.black, 
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
