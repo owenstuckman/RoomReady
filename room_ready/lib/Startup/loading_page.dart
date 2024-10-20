@@ -14,15 +14,15 @@ class Loading extends StatelessWidget {
         );
       },
       child: Scaffold(
-        backgroundColor: const Color(0xFFFFF4E6), // Updated to use Colors.orange[50]
+        backgroundColor: const Color.fromRGBO(255, 233, 200, 61), 
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center, // Center align the image
+            crossAxisAlignment: CrossAxisAlignment.center, 
             children: [
               Image.asset(
-                'assets/images/homeImage.png', // Replace the text with your image
-                width: 300, // You can adjust the width as needed
+                'assets/images/homeImage.png', 
+                width: 300, 
               ),
             ],
           ),
