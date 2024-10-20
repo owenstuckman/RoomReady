@@ -30,14 +30,14 @@ class Conversations extends ChangeNotifier {
     }
   }
 
-  Future<void> sendMessages(String userID, String receiverID, String message, String conversationID) async {
+  Future<void> sendMessages(int userID, int receiverID, String message, int conversationID) async {
     final url = Uri.parse('http://18.221.165.54:3000/send_message');
 
     // Use http.post instead of manually creating http.Request
     var response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'userID': userID, 'receiverID': receiverID, 'message' :message, 'conversationID': conversationID}),
+      body: jsonEncode({'senderID': userID, 'receiverID': receiverID, 'message' :message, 'conversationID': conversationID}),
     );
 
     if (response.statusCode == 200) {

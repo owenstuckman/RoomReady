@@ -23,6 +23,7 @@ class MessageInputField extends StatelessWidget {
             icon: Icon(Icons.send),
             onPressed: () {
               if (_controller.text.isNotEmpty) {
+                Conversations().sendMessages(1, 2, "sample", 1);
                 // Add the message using the Conversations provider
                 //Provider.of<Conversations>(context, listen: false)
                     //.addMessage('me', _controller.text);
