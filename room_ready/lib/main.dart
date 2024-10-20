@@ -26,7 +26,7 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => Conversations()),
+        ChangeNotifierProvider(create: (context) => Conversations()),
       ],
       child: MyApp(),
     ),

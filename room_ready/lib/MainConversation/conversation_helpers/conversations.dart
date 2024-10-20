@@ -30,14 +30,27 @@ class Conversations extends ChangeNotifier {
     }
   }
 
-  // Add a message to the list
-  void addMessage(String sender, String messageContent) {
-    _messages.add({
-      'sender': sender,
-      'content': messageContent,
-    });
-    notifyListeners(); // Notify UI to rebuild
+  Future<void> sendMessages(String userID, String receiverID, String message, String conversationID) async {
+    final url = Uri.parse('http://18.221.165.54:3000/send_message');
+
+    // Use http.post instead of manually creating http.Request
+    var response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'userID': userID, 'receiverID': receiverID, 'message' :message, 'conversationID': conversationID}),
+    );
+
+    if (response.statusCode == 200) {
+      var responseBody = jsonDecode(response.body);
+      // Assuming responseBody is a list and you're interested in the second message
+      print(responseBody[1]);
+      print("Work please");
+    } else {
+      print('Failed to load data. Status code: ${response.statusCode}');
+    }
   }
+
+
 }
 
 /*

@@ -22,14 +22,13 @@ class MessageInputField extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.send),
             onPressed: () {
-              Conversations().fetchConversations("1");
-              print("Is this working");
-
               if (_controller.text.isNotEmpty) {
-                // Use the Conversations provider to add the message
-                Provider.of<Conversations>(context, listen: false)
-                    .addMessage('me', _controller.text);
-                _controller.clear();
+                // Add the message using the Conversations provider
+                //Provider.of<Conversations>(context, listen: false)
+                    //.addMessage('me', _controller.text);
+                _controller.clear();  // Clear the input after sending the message
+
+
               }
             },
           ),
