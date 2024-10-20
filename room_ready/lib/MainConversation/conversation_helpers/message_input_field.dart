@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:room_ready/MainConversation/conversation_helpers/conversations.dart';
 
 class MessageInputField extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
@@ -21,10 +22,12 @@ class MessageInputField extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.send),
             onPressed: () {
+              Conversations().fetchConversations("1");
+              print("Is this working");
+
               if (_controller.text.isNotEmpty) {
-                // Provider is mesage returned
-                // messages list
-                Provider.of<MessageProvider>(context, listen: false)
+                // Use the Conversations provider to add the message
+                Provider.of<Conversations>(context, listen: false)
                     .addMessage('me', _controller.text);
                 _controller.clear();
               }

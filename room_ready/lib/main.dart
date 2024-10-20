@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:room_ready/Itinerary/Calender.dart';
 import 'package:room_ready/Itinerary/Itinerary.dart';
 import 'package:room_ready/Itinerary/budgetSelection.dart';
@@ -10,12 +11,21 @@ import 'package:room_ready/Startup/loading_page.dart';
 import 'package:room_ready/themes.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'MainConversation/conversation_helpers/conversations.dart';
+
 Future<void> main() async {
   await Supabase.initialize(
     url: 'https://tsewlrukrykkycootlsb.supabase.co',
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzZXdscnVrcnlra3ljb290bHNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkzNjcwNTUsImV4cCI6MjA0NDk0MzA1NX0.DNwdRirUSViojOqOOLHaJ_lW9u2jd1siOxqdmQWz6PU',
   );
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Conversations()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 // Get a reference your Supabase client
