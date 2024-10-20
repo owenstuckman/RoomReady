@@ -146,7 +146,7 @@ class _SigninState extends State<Signin> {
 
                   if (loginSuccess) {
                     print("Login successful");
-                    Navigator.pushReplacement(
+                    Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => HomePage()),
                 );
@@ -172,7 +172,7 @@ class _SigninState extends State<Signin> {
             //reformat so only the word sign up is blue
                 GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Signup()),
                 );

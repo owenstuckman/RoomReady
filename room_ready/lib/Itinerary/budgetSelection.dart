@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:room_ready/Home/home.dart';
 import 'package:room_ready/Itinerary/Itinerary.dart';
 import 'package:room_ready/Itinerary/yearPicker.dart';
+import 'package:room_ready/home_page.dart';
 
 class budgetSelection extends StatelessWidget {
   const budgetSelection({super.key});
@@ -102,9 +104,9 @@ class budgetSelection extends StatelessWidget {
                   // Back Button
                   TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Itinerary()),
+                        MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
                     style: TextButton.styleFrom(
@@ -123,7 +125,7 @@ class budgetSelection extends StatelessWidget {
                   // Next Button
                   TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => yearPicker()),
                       );

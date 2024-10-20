@@ -108,7 +108,7 @@ class _yearPickerState extends State<yearPicker> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => budgetSelection()),
                     );
@@ -126,9 +126,9 @@ class _yearPickerState extends State<yearPicker> {
 
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => calendarPage()),
+                      MaterialPageRoute(builder: (context) => CalendarPage()),
                     );
                   },
                   style: TextButton.styleFrom(

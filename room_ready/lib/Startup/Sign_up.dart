@@ -153,7 +153,7 @@ class _SignupState extends State<Signup> {
 
                  local_Data().saveProfileData(username,email,password,0,0,0);
 
-                 Navigator.pushReplacement(
+                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Signin()),
                 );
@@ -175,7 +175,7 @@ class _SignupState extends State<Signup> {
             //Make it so only the signin button is blue and clickable
              GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Signin()),
                 );
