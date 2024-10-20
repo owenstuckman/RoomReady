@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:room_ready/GlobalStuff/local_data.dart';
 import 'package:room_ready/Startup/Sign_in.dart';
+import 'package:room_ready/Startup/interests.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -155,7 +156,7 @@ class _SignupState extends State<Signup> {
 
                  Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Signin()),
+                  MaterialPageRoute(builder: (context) => Interests()),
                 );
                   
                 },

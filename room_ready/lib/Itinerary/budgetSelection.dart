@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:room_ready/Home/home.dart';
-import 'package:room_ready/Itinerary/Itinerary.dart';
 import 'package:room_ready/Itinerary/yearPicker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:room_ready/GlobalStuff/local_data.dart';
 import 'package:room_ready/home_page.dart';
 
 class budgetSelection extends StatelessWidget {
-  const budgetSelection({super.key});
+  budgetSelection({super.key});
+
+  final TextEditingController minBudgetController = TextEditingController();
+  final TextEditingController maxBudgetController = TextEditingController();
+
+  final local_Data localData = local_Data(); // Instance of your local data class
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +49,7 @@ class budgetSelection extends StatelessWidget {
                       SizedBox(
                         width: 150, 
                         child: TextField(
+                          controller: minBudgetController, // Controller for min budget
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             hintText: 'ex. \$2000',
@@ -55,6 +61,7 @@ class budgetSelection extends StatelessWidget {
                               borderSide: BorderSide.none,
                             ),
                           ),
+                          keyboardType: TextInputType.number,
                         ),
                       ),
                     ],
@@ -70,11 +77,10 @@ class budgetSelection extends StatelessWidget {
                       ),
                       SizedBox(height: 8), 
 
-
-
                       SizedBox(
                         width: 150,
                         child: TextField(
+                          controller: maxBudgetController, // Controller for max budget
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             hintText: 'ex. \$5000',
@@ -86,6 +92,7 @@ class budgetSelection extends StatelessWidget {
                               borderSide: BorderSide.none,
                             ),
                           ),
+                          keyboardType: TextInputType.number,
                         ),
                       ),
                     ],
@@ -95,16 +102,14 @@ class budgetSelection extends StatelessWidget {
 
               SizedBox(height: 20), // Add some space before the buttons
 
-
-
-
+              // Row for Back and Next Buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
                 children: [
                   // Back Button
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
+                        Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => HomePage()),
                       );
@@ -120,18 +125,22 @@ class budgetSelection extends StatelessWidget {
                     ),
                   ),
 
-
-
                   // Next Button
                   TextButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      double minBudget = double.tryParse(minBudgetController.text) ?? 0.0;
+                      double maxBudget = double.tryParse(maxBudgetController.text) ?? 0.0;
+
+                      // Save min and max budget to SharedPreferences
+                      localData.saveMinMaxBudget(minBudget, maxBudget);
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => yearPicker()),
                       );
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey, 
+                      backgroundColor: Colors.grey,
                     ),
                     child: Text(
                       'Next',
@@ -142,9 +151,6 @@ class budgetSelection extends StatelessWidget {
                   ),
                 ],
               ),
-
-
-
             ],
           ),
         ),
