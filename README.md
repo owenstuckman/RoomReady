@@ -22,6 +22,5 @@ Features List:
 
 ---
 
-beyond just tour guide quotes include other pricing
 
 
