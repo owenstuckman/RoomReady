@@ -1,6 +1,11 @@
 # RoomReady
 
-CodeFest 2024
+Flutter Application to help travellers get connected with locals. Locals eventually are the travellers, and this exchange of information is important in order for both parties to have the best travel experiences. 
+
+This app connects them, helps plans trips, alongside other features powered by the collection of data from conversations.
+
+
+## CodeFest 2024
 
 Features List:
 
